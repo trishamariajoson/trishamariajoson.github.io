@@ -1,272 +1,313 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-*{
+:root {
+    --primary-color: black;
+    --hover-color: blueviolet;
+    --background-gradient: linear-gradient(transparent, rgba(30,30,30,0.8));
+    --font-size-normal: 18px;
+    --font-size-logo: 30px;
+    --font-size-large: 40px;
+    --header-height: 80px;
+    --zindex-header: 10;
+    --transition-fast: 0.4s ease;
+    --transition-med: 0.5s ease-in-out; /* Added new variable for consistency */
+}
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     list-style-type: none;
     text-decoration: none;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
     min-height: 100vh;
-    min-width: 400px;
-    overflow: hidden;
+    overflow-x: hidden; 
 }
 
-header{
+header {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-around;
     width: 100%;
-    height: 80px;
+    height: var(--header-height);
     padding: 0 5%;
-    color: black;
-    font-size: 18px;
-}
-
-header .logo{
-    color: black;
-    font-size: 30px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-right: auto;
-}
-
-header nav{
-    display: flex;
-    align-items: center;
-}
-
-header nav .menu{
-    display: flex;
-    align-items: center;
-}
-
-header nav .menu li a{
+    background-color: white;
+    color: var(--primary-color);
+    font-size: var(--font-size-normal);
     position: relative;
-    color: black;
-    font-weight: 500;
-    margin-left: 40px;
+    z-index: var(--zindex-header);
+}
+
+header .logo {
+    font-size: var(--font-size-logo);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav .menu {
+    display: flex;
+    gap: 40px;
+}
+
+header nav .menu li a {
+    padding: 10px; 
     border-radius: 10px;
-    transition: color 0.4s ease;
+    transition: color var(--transition-fast);
 }
 
-header nav .menu li a:hover{
-    color: blueviolet;
+header nav .menu li a:hover {
+    color: var(--hover-color);
 }
 
-header nav #toggle{
-    font-size: 15px;
-    margin-left: 80px;
-}
-
-.section_top{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: absolute;
-    background-color: linear-gradient(transparent, rgba(30,30,30,0.8));
-    background-image: url(img/img.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    text-align: center;
+.section_top {
+    display: flex;
+    align-items: center;
     justify-content: center;
+    height: 100vh;
+    background: var(--background-gradient), url('img1/img.png') center / cover no-repeat;
+    position: relative;
     animation: change 20s infinite ease-in-out;
 }
 
-@keyframes change{
-    0% {
-        background-image: url(img/img1.png);
-    }
-    20% {
-        background-image: url(img/img2.png);
-    }
-    40% {
-        background-image: url(img/img3.png);
-    }
-    60% {
-        background-image: url(img/img4.png);
-    }
-    80% {
-        background-image: url(img/img5.png);
-    }
-    100% {
-        background-image: url(img/img6.png);
-    }
-}
-
-.content{
+.content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: 800;
-    font-size: 40px;
-
-
-}
-.content h1{
+    font-size: var(--font-size-large);
     color: #fff;
-    font-size: 150px;
+    text-align: center;
+    z-index: 2; 
+}
+
+.content h1 {
+    font-size: 150px; /* A variable here can help if value changes responsively */
     letter-spacing: 10px;
+}
+
+
+@keyframes change {
+    0% { background-image: url('img/img1.png'); }
+    20% { background-image: url('img/img2.png'); }
+    40% { background-image: url('img/img3.png'); }
+    60% { background-image: url('img/img4.png'); }
+    80% { background-image: url('img/img5.png'); }
+    100% { background-image: url('img/img6.png'); }
+}
+
+.section_about_thailand {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+    align-items: center;
+    margin: 20px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.section_about_thailand .image_container {
+    transition: transform var(--transition-med);
+    margin-left: 10px;
+}
+
+.section_about_thailand .image_container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform var(--transition-med);
+}
+
+.section_about_thailand:hover .image_container img {
+    transform: scale(1.05);
+}
+
+.text_container {
+    padding: 1rem;
+    font-size: 1rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.text_container h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.text_container p {
+    text-align: justify;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.places {
+    padding: 20px;
+    font-size: 50px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    text-align: center;
+    color: #333;
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}
+
+/*Slider*/
+.slider{
+    height: 80vh;
+    position: relative;
+}
+.slider .list .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+.slider .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.slider .list .item img::after{
+    content:'';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(to top, black 40%, transparent);
+}
+
+.slider .list .item .content h2 {
+    font-size: 6rem; 
+    margin: 0;
+    text-align: center;
+    
+}
+.slider .list .item .content p:nth-child(1){
     text-transform: uppercase;
+    letter-spacing: 10px;
 
 }
-.content h1 span{
-    color: #111;
-}
 
-@media (max-width:800px) and (min-width:401px){
-    header nav .menu{
-        flex-direction: column;
-        row-gap: 20px;
-        position: absolute;
-        left: -100%;
-        top: 80px;
-        width: 100%;
-        padding-top: 110px;
-        background-color: black;
-        height: calc(100vh - 80px);
-        z-index: 10;
-        transition: left 0.4s ease;
-    }
+.slider .list .item.active{
+    opacity: 1;
+    z-index: 10;
+} 
 
-    header nav .menu.active{
-        left: 0;
-        display: flex;
-        width: 100%;
-        padding-left: 0;
-    }
-
-    header nav .menu li a{
-        margin-left: unset;
-        font-size: 20px;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: cadetblue;
-        width: 250px;
-        height: 60px;
-        line-height: 60px;
-        display: block;
-        text-align: center;
-        border-radius: 5px;
-        transition: 0.25s ease;
-    }
-
-    header nav .menu li a:hover{
-        color: blueviolet;
-    }
-    .section_top{
-        max-width: 100%;
-        width: 100%;
-    }
-    .content h1{
-        font-size: 100px;
+@keyframes showContent {
+    to{
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;    
     }
 }
-
-@media (max-width:400px) and (min-width: 321px) {
-    header nav .menu{
-        flex-direction: column;
-        row-gap: 20px;
-        position: absolute;
-        left: -100%;
-        top: 80px;
-        width: 100%;
-        padding-top: 80px;
-        background-color: black;
-        height: 100%;
-        z-index: 10;
-        transition: left 0.4s ease;
-    }
-
-    header nav .menu.active{
-        left: 0;
-        display: flex;
-        width: 400px;
-        padding-left: 0;
-        height: 100%;
-    }
-
-    header nav .menu li a{
-        margin-left: unset;
-        font-size: 20px;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: cadetblue;
-        width: 250px;
-        height: 60px;
-        line-height: 60px;
-        display: block;
-        text-align: center;
-        border-radius: 5px;
-        transition: 0.25s ease;
-    }
-
-    header nav .menu li a:hover{
-        color: blueviolet;
-        transition: 0.3s ease;
-    }
-
-    .section_top{
-        width: 400px;
+    .slider .list .item .content p:nth-child(1),
+    .slider .list .item .content p:nth-child(3){
+        transform: translateY(30px);
+        filter: blur(20px);
+        opacity: 0;
+        animation: showContent .5s .7s ease-in-out 1 forwards
 
     }
-    .content h1{
-        font-size: 50px;
+
+
+.arrows{
+    position: absolute;
+    top: 20%;
+    right: 150px;
+    z-index: 100;
+}
+.arrows button{
+    background-color: rgba(238, 238, 238, 0.108);
+    border: none;
+    font-family: monospace;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: x-large;
+    color: white;
+    transition: .5s;
+}
+.arrows button:hover{
+    background-color: white;
+    color: black;
+}
+.thumbnail{
+    position: absolute;
+    bottom: 50px;
+    z-index: 11;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 250px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    overflow: auto;
+    justify-content: center;
+}
+.thumbnail::-webkit-scrollbar{
+    width: 0;
+}
+.thumbnail .item{
+    width: 150px;
+    height: 220px;
+    filter: brightness(.5);
+    transition: .5s;
+    flex-shrink: 0;
+}
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.thumbnail .item.active{
+    filter: brightness(1.5);
+}
+.thumbnail .item .content{
+    position: absolute;
+    inset: auto 10px 10px 10px;
+}
+@media screen and (max-width: 678px) {
+    .thumbnail{
+        justify-content: start;
+    }
+    .slider .list .item .content h2{
+        font-size: 60px;
+    }
+    .arrows{
+        top: 10%;
     }
 }
 
-@media (max-width:320px){
-    header nav .menu{
-        flex-direction: column;
-        row-gap: 20px;
-        position: absolute;
-        left: -100%;
-        top: 80px;
-        width: 100%;
-        padding-top: 80px;
-        background-color: black;
-        height: 100%;
-        z-index: 10;
-        transition: left 0.4s ease;
+@media (min-width: 769px) {
+    .section_about_thailand .image_container {
+        order: 2; /* Display image container second */
     }
+    .section_about_thailand .text_container {
+        order: 1; /* Display text container first */
+    }
+}
 
-    header nav .menu.active{
-        left: 0;
-        display: flex;
-        width: 400px;
-        padding-left: 0;
-        height: 100%;
+/* Ensure correct order on smaller screens */
+@media (max-width: 768px) {
+    .section_about_thailand {
+        grid-template-columns: 1fr; /* Stack the items */
     }
-
-    header nav .menu li a{
-        margin-left: unset;
-        font-size: 20px;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: cadetblue;
-        width: 250px;
-        height: 60px;
-        line-height: 60px;
-        display: block;
-        text-align: center;
-        border-radius: 5px;
-        transition: 0.25s ease;
-    }
-
-    header nav .menu li a:hover{
-        color: blueviolet;
-        transition: 0.3s ease;
-    }
-
-    .section_top{
-        width: 400px;
-    }
-    .content h1{
-        font-size: 50px;
+    .section_about_thailand .image_container,
+    .section_about_thailand .text_container {
+        order: unset; /* Remove any specific ordering */
     }
 }
