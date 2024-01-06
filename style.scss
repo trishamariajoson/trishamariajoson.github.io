@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+$primary-color: black;
+$hover-color: #800080;
+$background-gradient: linear-gradient(transparent, rgba(30, 30, 30, 0.8));
+$font-size-normal: 18px;
+$font-size-logo: 1.875rem;
+$font-size-large: 40px;
+$header-height: 80px;
+$zindex-header: 2;
+$transition-fast: 0.4s ease;
+$transition-med: 0.5s ease-in-out;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden; 
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+    padding: 1rem;
+    background-color: white;
+    color: $primary-color;
+    font-size: $font-size-normal;
+    position: relative;
+    z-index: $zindex-header;
+}
+
+header .logo {
+    font-size: $font-size-logo;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+header nav .menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+header nav .menu li a {
+    display: block;
+    padding: 5px; 
+    transition: color $transition-fast;
+    color: rgb(48, 45, 45);
+}
+
+header nav .menu li a:hover {
+    color:white;
+    background-color:$hover-color;
+    border-radius: 5px;
+}
+
+.section_top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: $background-gradient, url('img1/img.png') center / cover no-repeat;
+    position: relative;
+    animation: change 20s infinite ease-in-out;
+}
+#toggle{
+    display: none;
+   font-size: 1rem;
+   cursor: pointer;
+   position: absolute;
+   top: 40%;
+   right: 15px;
+   z-index: 5;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 800;
+    font-size: $font-size-large;
+    color: #fff;
+    text-align: center;
+    z-index: 1; 
+}
+
+.content h1 {
+    font-size: 12vw; 
+    letter-spacing: 10px;
+}
+
+
+@keyframes change {
+    0% { background-image: url('img/img1.png'); }
+    20% { background-image: url('img/img2.png'); }
+    40% { background-image: url('img/img3.png'); }
+    60% { background-image: url('img/img4.png'); }
+    80% { background-image: url('img/img5.png'); }
+    100% { background-image: url('img/img6.png'); }
+}
+
+.section_about_thailand {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+    align-items: center;
+    margin: 40px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.section_about_thailand .image_container {
+    transition: transform var$transition-med;
+    margin-left: 10px;
+}
+
+.section_about_thailand .image_container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform $transition-med;
+}
+
+.section_about_thailand:hover .image_container img {
+    transform: scale(1.05);
+}
+
+.text_container {
+    padding: 1rem;
+    font-size: 1rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.text_container h1 {
+    font-size: 1.5rem;
+    color: $primary-color;
+    margin-bottom: 1rem;
+}
+
+.text_container p {
+    text-align: justify;
+    line-height: 1.6;
+    text-align: left;
+}
+.learn-more {
+    text-align: center;
+    margin-top: 20px; 
+    margin-bottom: 10px;
+
+}
+
+.learn-more-button {
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000; 
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px; 
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for background and text color */
+}
+
+.learn-more-button:hover {
+    background-color: $hover-color; /* Purple background on hover */
+    color: #fff; /* White text on hover */
+    border-color: $hover-color; /* Optional: Change border color on hover to match the background */
+}
+
+.places {
+    padding: 20px;
+    font-size: 50px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    text-align: center;
+    color: #333;
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}
+
+/*Slider*/
+.slider{
+    height: 80vh;
+    position: relative;
+}
+.slider .list .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+.slider .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.slider .list .item img::after{
+    content:'';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.slider .list .item .content h2 {
+    font-size: 6rem; 
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    
+}
+.slider .list .item .content p:nth-child(1){
+    text-transform: uppercase;
+    letter-spacing: 10px;
+
+}
+
+.slider .list .item.active{
+    opacity: 1;
+    z-index: 10;
+} 
+
+@keyframes showContent {
+    to{
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;    
+    }
+}
+    .slider .list .item .content p:nth-child(1),
+    .slider .list .item .content p:nth-child(3){
+        transform: translateY(30px);
+        filter: blur(20px);
+        opacity: 0;
+        animation: showContent .5s .7s ease-in-out 1 forwards
+
+    }
+
+
+.arrows{
+    position: absolute;
+    top: 20%;
+    right: 150px;
+    z-index: 100;
+}
+.arrows button{
+    background-color: rgba(238, 238, 238, 0.108);
+    border: none;
+    font-family: monospace;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: x-large;
+    color: white;
+    transition: .5s;
+}
+.arrows button:hover{
+    background-color: white;
+    color: black;
+}
+.thumbnail{
+    position: absolute;
+    bottom: 0px;
+    z-index: 11;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 250px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    overflow: auto;
+    justify-content: center;
+}
+.thumbnail::-webkit-scrollbar{
+    width: 0;
+}
+.thumbnail .item{
+    width: 150px;
+    height: 220px;
+    filter: brightness(.5);
+    transition: .5s;
+    flex-shrink: 0;
+}
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.thumbnail .item.active{
+    filter: brightness(1);
+}
+.thumbnail .item .content{
+    position: absolute;
+    inset: auto 10px 10px 10px;
+}
+
+  @media (max-width: 480px) {
+    header .logo {
+      font-size: 1.5rem;
+    }
+    header nav .menu li a {
+      padding: 15px;
+    }
+  }
+  @media (max-width: 1000px) {
+    header nav .menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100vh;
+      padding-top: $header-height;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-y: auto;
+      transition: left 0.3s;
+
+    &.active{
+        left: 0;
+        z-index: 4;
+    }
+    }
+    header nav .menu.active {
+      display: flex;
+      
+      ;
+    }
+    #toggle {
+      display: block;
+    }
+  
+    .section_about_thailand {
+      grid-template-columns: 1fr; /* Stack the items */
+    }
+    .section_about_thailand .image_container,
+    .section_about_thailand .text_container {
+      order: unset; /* Remove any specific ordering */
+      margin: 0;
+      height: auto;
+    }
+    body.no-scroll{
+        overflow: hidden;
+    }
+  }
+  
+  

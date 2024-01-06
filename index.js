@@ -15,9 +15,23 @@ gsap.from(".text_container", {
   ease: "power1.out"
 });
 
-document.getElementById('toggle').addEventListener('click', function() {
-  document.querySelector('header nav .menu').classList.toggle('active');
+const toggleButton = document.getElementById('toggle');
+const menu = document.querySelector('.menu');
+const slider = document.querySelector('.slider'); // Select your slider
+
+toggleButton.addEventListener('click', () => {
+  const isOpen = menu.classList.toggle('active');
+
+  if (isOpen) {
+    document.body.classList.add('no-scroll');
+    slider.style.display = 'none'; // Hide slider when menu opens
+  } else {
+    document.body.classList.remove('no-scroll');
+    slider.style.display = 'block'; // Show slider when menu closes
+  }
 });
+
+
 let items = document.querySelectorAll('.slider .list .item');
 let next = document.getElementById('next');
 let prev = document.getElementById('prev');
