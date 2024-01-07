@@ -85,3 +85,28 @@ thumbnails.forEach((thumbnail, index) => {
         showSlider();
     })
 })
+
+// Function to adjust the height of the slider
+function adjustSliderHeight() {
+  const activeItem = document.querySelector('.slider .list .item.active img');
+  if (activeItem) {
+      const imageHeight = activeItem.clientHeight;
+      const slider = document.querySelector('.slider');
+      slider.style.height = `${imageHeight}px`;
+  }
+}
+
+// Set up an event listener for when the window resizes
+window.addEventListener('resize', adjustSliderHeight);
+
+// Initial adjust when the document is ready and when images load
+document.addEventListener('DOMContentLoaded', () => {
+  // Ensure images are loaded before calculating height
+  const images = document.querySelectorAll('.slider .list .item img');
+  images.forEach((img) => {
+      img.onload = adjustSliderHeight;
+  });
+  
+  // Initial adjustment
+  adjustSliderHeight();
+});

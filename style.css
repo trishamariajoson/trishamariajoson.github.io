@@ -74,21 +74,10 @@ header nav .menu li a:hover {
   z-index: 5;
 }
 
-.content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-weight: 800;
-  font-size: 40px;
-  color: #fff;
-  text-align: center;
-  z-index: 1;
-}
-
 .content h1 {
   font-size: 12vw;
   letter-spacing: 10px;
+  color: white;
 }
 
 @keyframes change {
@@ -177,12 +166,12 @@ header nav .menu li a:hover {
 .learn-more-button:hover {
   background-color: #800080; /* Purple background on hover */
   color: #fff; /* White text on hover */
-  border-color: #800080; /* Optional: Change border color on hover to match the background */
+  border-color: #800080;
 }
 
 .places {
   padding: 20px;
-  font-size: 50px;
+  font-size: 6vw;
   margin-top: 50px;
   margin-bottom: 20px;
   font-weight: 500;
@@ -194,7 +183,7 @@ header nav .menu li a:hover {
 
 /*Slider*/
 .slider {
-  height: 80vh;
+  height: 90vh;
   position: relative;
 }
 
@@ -222,11 +211,23 @@ header nav .menu li a:hover {
   bottom: 0;
 }
 
-.slider .list .item .content h2 {
-  font-size: 6rem;
+.slider .list .item .content2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+}
+
+.slider .list .item .content2 h2 {
+  font-size: 6vw;
   margin: 0;
   text-align: center;
   text-transform: uppercase;
+  width: 80vh;
 }
 
 .slider .list .item .content p:nth-child(1) {
@@ -257,25 +258,25 @@ header nav .menu li a:hover {
 .arrows {
   position: absolute;
   top: 20%;
-  right: 150px;
+  right: 10%;
   z-index: 100;
 }
 
 .arrows button {
-  background-color: rgba(238, 238, 238, 0.108);
+  background-color: white;
   border: none;
   font-family: monospace;
-  width: 40px;
-  height: 40px;
+  width: 3rem;
+  height: 3rem;
   border-radius: 5px;
   font-size: x-large;
-  color: white;
+  color: black;
   transition: 0.5s;
 }
 
 .arrows button:hover {
-  background-color: white;
-  color: black;
+  background-color: #800080;
+  color: white;
 }
 
 .thumbnail {
@@ -285,7 +286,6 @@ header nav .menu li a:hover {
   display: flex;
   gap: 10px;
   width: 100%;
-  height: 250px;
   padding: 0 50px;
   box-sizing: border-box;
   overflow: auto;
@@ -297,11 +297,12 @@ header nav .menu li a:hover {
 }
 
 .thumbnail .item {
-  width: 150px;
-  height: 220px;
+  width: 135px;
+  height: 170px;
   filter: brightness(0.5);
   transition: 0.5s;
   flex-shrink: 0;
+  margin-bottom: 10px;
 }
 
 .thumbnail .item img {
@@ -321,6 +322,37 @@ header nav .menu li a:hover {
   inset: auto 10px 10px 10px;
 }
 
+/*Image Gallery*/
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.image-grid .image {
+  display: block;
+}
+
+.image-grid .image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.tall-image1 {
+  grid-row: 1/span 2;
+}
+
+.tall-image2 {
+  grid-row: 1/span 2;
+  grid-column: 4;
+}
+
+.small-image {
+  grid-row: span 1;
+}
+
+/*Responsive code*/
 @media (max-width: 480px) {
   header .logo {
     font-size: 1.5rem;
@@ -329,7 +361,7 @@ header nav .menu li a:hover {
     padding: 15px;
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 412px) {
   header nav .menu {
     position: fixed;
     top: 0;
@@ -349,11 +381,45 @@ header nav .menu li a:hover {
     left: 0;
     z-index: 4;
   }
+  header nav .menu header nav .menu li {
+    padding-top: 20px;
+  }
   header nav .menu.active {
     display: flex;
   }
   #toggle {
     display: block;
+  }
+  .section_top {
+    height: 100vh;
+    background-size: cover;
+    background-attachment: scroll;
+  }
+  .section_top {
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: very-small-screen-animation 30s infinite;
+  }
+  @keyframes very-small-screen-animation {
+    0% {
+      background-image: url("img/img1-mobile.png");
+    }
+    20% {
+      background-image: url("img/img2-mobile.png");
+    }
+    40% {
+      background-image: url("img/img3-mobile.png");
+    }
+    60% {
+      background-image: url("img/img4-mobile.png");
+    }
+    80% {
+      background-image: url("img/img5-mobile.png");
+    }
+    100% {
+      background-image: url("img/img6-mobile.png");
+    }
   }
   .section_about_thailand {
     grid-template-columns: 1fr; /* Stack the items */
@@ -366,5 +432,129 @@ header nav .menu li a:hover {
   }
   body.no-scroll {
     overflow: hidden;
+  }
+  .thumbnail {
+    width: 100%;
+    height: auto;
+  }
+  .thumbnail .item img {
+    max-height: 80%;
+  }
+  .content {
+    top: 25%;
+  }
+  .slider .list .item .content2 h2 {
+    font-size: 10vw;
+  }
+  .thumbnail .item {
+    width: 52px;
+    height: 115px;
+  }
+}
+@media (max-width: 768px) and (min-width: 413px) {
+  header nav .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    padding-top: 80px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    transition: left 0.3s;
+  }
+  header nav .menu.active {
+    left: 0;
+    z-index: 4;
+  }
+  header nav .menu header nav .menu li {
+    padding-top: 20px;
+  }
+  header nav .menu.active {
+    display: flex;
+  }
+  #toggle {
+    display: block;
+  }
+  .section_top {
+    height: 100vh;
+    background-size: cover;
+    background-attachment: scroll;
+  }
+  .section_about_thailand {
+    grid-template-columns: 1fr; /* Stack the items */
+  }
+  .section_about_thailand .image_container,
+  .section_about_thailand .text_container {
+    order: unset; /* Remove any specific ordering */
+    margin: 0;
+    height: auto;
+  }
+  body.no-scroll {
+    overflow: hidden;
+  }
+  .thumbnail {
+    width: 100%;
+    height: auto;
+  }
+  .thumbnail .item img {
+    max-height: 80%;
+  }
+  .content {
+    top: 25%;
+  }
+  .content2 h2 {
+    font-size: 20px;
+  }
+  .thumbnail {
+    width: 100%;
+    height: auto;
+  }
+  .thumbnail .item img {
+    max-height: 80%;
+  }
+  .content {
+    top: 25%;
+  }
+  .content2 h2 {
+    font-size: 20px;
+  }
+  .thumbnail .item {
+    width: 114px;
+    height: 222px;
+  }
+}
+@media (max-width: 1140px) {
+  header nav .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    padding-top: 80px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    transition: left 0.3s;
+  }
+  header nav .menu.active {
+    left: 0;
+    z-index: 4;
+  }
+  header nav .menu header nav .menu li {
+    padding-top: 20px;
+  }
+  header nav .menu.active {
+    display: flex;
+  }
+  #toggle {
+    display: block;
   }
 }/*# sourceMappingURL=style.css.map */
