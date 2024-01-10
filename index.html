@@ -10,21 +10,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
-  
+
 </head>
 
 <body>
     <header>
+        <!--Header Section-->
         <div class="logo">
             Exotic Thai
         </div>
         <nav>
             <ul class="menu">
-                <li><a href="#">Explore Thailand</a></li>
-                <li><a href="#">Things to do</a></li>
-                <li><a href="#">Eat and Drink</a></li>
-                <li><a href="#">Plan your Trip</a></li>
-                <li><a href="#">Our Packages</a></li>
+                <li><a href="#thai">Explore Thailand</a></li>
+                <li><a href="#visit">Places to Visit</a></li>
+                <li><a href="#things">Things To Do</a></li>
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#packages">Our Packages</a></li>
             </ul>
             <i class="fa-solid fa-bars" id="toggle"></i>
         </nav>
@@ -37,7 +38,7 @@
         </div>
     </div>
     <!--Section about Thailand-->
-    <div class="section_about_thailand">
+    <div class="section_about_thailand" id="thai">
 
         <div class="text_container">
             <h1>Discover Thailand's Enchanting Wonders</h1>
@@ -53,7 +54,7 @@
             <img src="img/img.png" alt="Thailand image">
         </div>
     </div>
-    <div class="places">Places to visit</div>
+    <div class="places" id="visit">Places to visit</div>
     <!--Slider for places to visit-->
     <div class="slider">
         <div class="list">
@@ -88,9 +89,10 @@
                 </div>
             </div>
         </div>
-
+        <!--Arrows for Slider-->
         <div class="arrows">
-            <button id="prev"><</button>
+            <button id="prev">
+                << /button>
                     <button id="next">></button>
         </div>
         <div class="thumbnail">
@@ -124,11 +126,12 @@
     </div>
 
     <!--Things To Do-->
-    <div class="places">
+    <div class="places" id="things">
         Things To DO
     </div>
+    <!--Image grid with hover and scale-->
     <div class="image-grid">
-        <div class="image tall-image1">
+        <div class="image tall-image1"> <!--Image will span two whole column-->
             <p>Experience Thai Massage</p><img src="img/1.png" alt="Image 1">
         </div>
         <div class="image small-image">
@@ -149,11 +152,11 @@
     </div>
 
     <!--Our Services-->
-    <div class="container2">
+    <div class="container2" id="services">
         <div class="places2">Our Services</div>
         <div class="row2">
             <div class="service">
-                <i class="fa-sharp fa-solid fa-passport" style="color: #800080;"></i>
+                <i class="fa-sharp fa-solid fa-passport" style="color: #800080;"></i> <!--Adding font awesome icons-->
                 <h2>Visa Services</h2>
                 <p>Streamlined and hassle-free visa processing to ensure your travels to Thailand begin smoothly.</p>
             </div>
@@ -177,10 +180,10 @@
 
         </div>
     </div>
-    <div class="places">Our Packages</div>
+    <div class="places" id="packages">Our Packages</div>
     <!--Our Packages-->
     <div class="article_container">
-        <div class="slider-nav-btn slider-nav-btn-prev">‹</div>
+        <div class="slider-nav-btn slider-nav-btn-prev">‹</div> <!--Prev button-->
         <div class="card_wrapper">
             <article class="article_card">
                 <figure class="article_image">
@@ -194,13 +197,15 @@
                     <div class="card">
                         <b>Attractions Include:</b> Phi Phi Island Tour, Coral Island Tour<br>
                         <b>Inclusions:</b>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> 2 Night/s accommodation at Novotel Kata Avista Phuket</li>
-                        <li><i class="fa-solid fa-check"></i> 2 Night/s accommodation at Ibis Styles Pattaya</li>
-                        <li><i class="fa-solid fa-check"></i> All Tours and sightseeings are operated on shared basis or
-                            will depend on your vehicle selection during customization</li>
-                        <div class="price">USD 554 PAX</div>
-                    </ul>
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> 2 Night/s accommodation at Novotel Kata Avista Phuket
+                            </li>
+                            <li><i class="fa-solid fa-check"></i> 2 Night/s accommodation at Ibis Styles Pattaya</li>
+                            <li><i class="fa-solid fa-check"></i> All Tours and sightseeings are operated on shared
+                                basis or
+                                will depend on your vehicle selection during customization</li>
+                            <div class="price">USD 554 PAX</div>
+                        </ul>
                     </div>
                 </div>
             </article>
@@ -216,14 +221,15 @@
                     <div class="card">
                         <b>Attractions Include:</b> Coral Island Tour, Marine and Safari Park<br>
                         <b>Inclusions:</b>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> 2 Night/s accommodation at Holiday Inn Express</li>
-                        <li><i class="fa-solid fa-check"></i> 2 Night/s accommodation at Shangri La Bangkok</li>
-                        <li><i class="fa-solid fa-check"></i> All Tours and sightseeings are operated on shared basis or
-                            will depend on your vehicle selection during customization</li>
-                        <div class="price">USD 300 PAX</div>
-                    </ul>
-                </div>
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> 2 Night/s accommodation at Holiday Inn Express</li>
+                            <li><i class="fa-solid fa-check"></i> 2 Night/s accommodation at Shangri La Bangkok</li>
+                            <li><i class="fa-solid fa-check"></i> All Tours and sightseeings are operated on shared
+                                basis or
+                                will depend on your vehicle selection during customization</li>
+                            <div class="price">USD 300 PAX</div>
+                        </ul>
+                    </div>
                 </div>
             </article>
             <article class="article_card">
@@ -231,21 +237,24 @@
                     <img src="img/phuket1.png" alt="">
                 </figure>
                 <div class="article_content">
-                    <h2 class="card_title">Phuket City and     Krabi</h2>
+                    <h2 class="card_title">Phuket City and Krabi</h2>
                     <a href="" class="card_category">
                         5 NIGHTS/ 6 DAYS
                     </a>
                     <div class="card">
                         <b>Attractions Include:</b> Phi Phi Island Tour, Emerald Pool, Hot Water Springs<br>
                         <b>Inclusions:</b>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> 3 Night/s accommodation at Novotel Kata Avista Phuket</li>
-                        <li><i class="fa-solid fa-check"></i> 2 Night accommodation at Ibis Styles Krabi Ao Nang</li>
-                        <li><i class="fa-solid fa-check"></i> All Tours and sightseeings are operated on shared basis or
-                            will depend on your vehicle selection during customization</li>
-                        <div class="price">USD 650 PAX</div>
-                    </ul>
-                </div>
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> 3 Night/s accommodation at Novotel Kata Avista Phuket
+                            </li>
+                            <li><i class="fa-solid fa-check"></i> 2 Night accommodation at Ibis Styles Krabi Ao Nang
+                            </li>
+                            <li><i class="fa-solid fa-check"></i> All Tours and sightseeings are operated on shared
+                                basis or
+                                will depend on your vehicle selection during customization</li>
+                            <div class="price">USD 650 PAX</div>
+                        </ul>
+                    </div>
                 </div>
             </article>
             <article class="article_card">
@@ -253,23 +262,26 @@
                     <img src="img/chiang mai1.png" alt="">
                 </figure>
                 <div class="article_content">
-                    <h2 class="card_title">Chiang Mai, Bangkok</h2>
+                    <h2 class="card_title">Chiang Mai and Bangkok</h2>
                     <a href="" class="card_category">
                         4 NIGHTS/ 5 DAYS
                     </a>
                     <div class="card">
                         <b>Attractions Include:</b> Wat Phra Singh Temple, Chaophraya Cruise<br>
                         <b>Inclusions:</b>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> 2 Night/s accommodation at Centara River Side hotel</li>
-                        <li><i class="fa-solid fa-check"></i> 2 Night/s accommodation at Mercure Hotel Bangkok</li>
-                        <li><i class="fa-solid fa-check"></i> All Tours and sightseeings are operated on shared basis or
-                            will depend on your vehicle selection during customization</li>
-                        <div class="price">USD 354</div>
-                    </ul>
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> 2 Night/s accommodation at Centara River Side hotel
+                            </li>
+                            <li><i class="fa-solid fa-check"></i> 2 Night/s accommodation at Mercure Hotel Bangkok</li>
+                            <li><i class="fa-solid fa-check"></i> All Tours and sightseeings are operated on shared
+                                basis or
+                                will depend on your vehicle selection during customization</li>
+                            <div class="price">USD 354</div>
+                        </ul>
+                    </div>
                 </div>
-                </div>
-            </article> <article class="article_card">
+            </article>
+            <article class="article_card">
                 <figure class="article_image">
                     <img src="img/koh samui.png" alt="">
                 </figure>
@@ -281,24 +293,78 @@
                     <div class="card">
                         <b>Attractions Include:</b> Wat Phra Singh Temple, Angthong Marine Park<br>
                         <b>Inclusions:</b>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> 2 Night/s accommodation at Centara River Side Hotel</li>
-                        <li><i class="fa-solid fa-check"></i> 2 Night/s accommodation at Hyatt Regency Koh Samui</li>
-                        <li><i class="fa-solid fa-check"></i> All Tours and sightseeings are operated on shared basis or
-                            will depend on your vehicle selection during customization</li>
-                        <div class="price">USD 354</div>
-                    </ul>
-                </div>
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> 2 Night/s accommodation at Centara River Side Hotel
+                            </li>
+                            <li><i class="fa-solid fa-check"></i> 2 Night/s accommodation at Hyatt Regency Koh Samui
+                            </li>
+                            <li><i class="fa-solid fa-check"></i> All Tours and sightseeings are operated on shared
+                                basis or
+                                will depend on your vehicle selection during customization</li>
+                            <div class="price">USD 354</div>
+                        </ul>
+                    </div>
                 </div>
             </article>
-            
+
 
         </div>
-        <div class="slider-nav-btn slider-nav-btn-next">›</div>
+        <div class="slider-nav-btn slider-nav-btn-next">›</div> <!--Next Button-->
     </div>
 
     <script src="index.js"></script>
-  
+
+    <!--Footer section-->
+    <footer>
+        <div class="footer_container">
+            <div class="sec aboutus">
+                <h2> About Us</h2>
+                <p>Based in Dubai, Exotic Thai provides bespoke tours, revealing the wonders of Thailand to discerning
+                    travelers.</p>
+                <ul class="sci">
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                </ul>
+            </div>
+            <div class="sec quicklinks">
+                <h2>Support</h2>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="sec quicklinks">
+                <h2>Our Branches</h2>
+                <ul>
+                    <li><a href="#">Oud Metha, Dubai</a></li>
+                    <li><a href="#">King Faisal, Sharjah</a></li>
+                    <li><a href="#">Al Hamriya, Ajman</a></li>
+                    <li><a href="#">Kalba, Fujairah</a></li>
+                </ul>
+            </div>
+            <div class="sec contact">
+                <h2>Contact Us</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class="fa-solid fa-phone"></i></span>
+                        <p><a href="tel:+9712345678900">+971 234 567 8900</a></p>
+                    </li>
+                    <li>
+                        <span><i class="fa-solid fa-envelope"></i></span>
+                        <p><a href="mailto:exoticthai@gmail.com">exoticthai@gmail.com</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyrightText">
+            <p>Copyright 2024 Exotic Thai. All Rights Reserved.</p>
+        </div>
+    </footer>
+
 
 </body>
 
