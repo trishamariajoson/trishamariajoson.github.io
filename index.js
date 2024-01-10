@@ -110,3 +110,107 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial adjustment
   adjustSliderHeight();
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const cardWrapper = document.querySelector('.card_wrapper');
+  const cards = document.querySelectorAll('.article_card');
+  const prevBtn = document.querySelector('.slider-nav-btn-prev');
+  const nextBtn = document.querySelector('.slider-nav-btn-next');
+
+  cardWrapper.addEventListener('wheel', (event) => {
+    event.preventDefault(); // Prevent default scrolling behavior
+    if (event.deltaY < 0) { // Scrolling up
+      scrollToIndex(currentIndex - 1);
+    } else { // Scrolling down
+      scrollToIndex(currentIndex + 1);
+    }
+  });
+
+  // Variables to hold mouse down and mouse move statuses
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  
+  cardWrapper.addEventListener('mousedown', (e) => {
+    isDown = true;
+    cardWrapper.classList.add('active'); // consider adding an 'active' class to change the cursor
+    startX = e.pageX - cardWrapper.offsetLeft;
+    scrollLeft = cardWrapper.scrollLeft;
+  });
+  
+  cardWrapper.addEventListener('mouseleave', () => {
+    isDown = false;
+    cardWrapper.classList.remove('active');
+  });
+  
+  cardWrapper.addEventListener('mouseup', () => {
+    isDown = false;
+    cardWrapper.classList.remove('active');
+  });
+  
+  cardWrapper.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - cardWrapper.offsetLeft;
+    const walk = (x - startX) * 2; // the * 2 value will determine the sensitivity, experiment with it
+    cardWrapper.scrollLeft = scrollLeft - walk;
+  });
+  // Function to calculate width of an element including margin
+  function getWidthWithMargin(element) {
+    const style = window.getComputedStyle(element);
+    return element.offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
+  }
+
+  // Function to scroll to a specific card index
+  function scrollToIndex(index, instant = false) {
+    const targetElement = cards[index];
+    const scroller = cardWrapper;
+    
+    const cardRect = targetElement.getBoundingClientRect();
+    const scrollerRect = scroller.getBoundingClientRect();
+
+    const scrollDistance = cardRect.left - scrollerRect.left + scroller.scrollLeft;
+    const scrollCentered = scrollDistance - (scrollerRect.width / 2) + (cardRect.width / 2);
+
+    if (instant) {
+      scroller.scrollTo({ left: scrollCentered });
+    } else {
+      scroller.scrollTo({ left: scrollCentered, behavior: 'smooth' });
+    }
+  }
+
+  let currentIndex = 0;
+
+  prevBtn.addEventListener('click', () => {
+    // If at the start, move to the end length directly and do instant scroll without animation
+    if (currentIndex === 0) {
+      currentIndex = cards.length - 1;
+      scrollToIndex(currentIndex);
+    } else {
+      currentIndex--;
+      scrollToIndex(currentIndex);
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    // If at the end, move to the start and make sure scroll instantly without animation
+    if (currentIndex === cards.length - 1) {
+      currentIndex = 0; 
+      scrollToIndex(currentIndex);
+    } else {
+      currentIndex++;
+      scrollToIndex(currentIndex);
+    }
+  });
+
+  // On load, scroll to the first index for a visually centered card without delay
+  scrollToIndex(currentIndex, true);
+});
+
+
+
+
+
+
+

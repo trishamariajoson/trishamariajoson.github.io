@@ -110,7 +110,7 @@ header nav .menu li a:hover {
 }
 
 .section_about_thailand .image_container {
-    transition: transform var$transition-med;
+    transition: transform $transition-med;
     margin-left: 10px;
 }
 
@@ -169,10 +169,10 @@ header nav .menu li a:hover {
 
 .places {
     padding: 20px;
-    font-size: 4vw;
+    font-size: 3vw;
     margin-top: 50px;
     margin-bottom: 20px;
-    font-weight: 500;
+    font-weight: bold;
     text-align: center;
     color: #333;
     text-transform: uppercase; 
@@ -312,21 +312,32 @@ header nav .menu li a:hover {
 /*Image Gallery*/
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* 4 columns distributed equally */
+    grid-template-rows: repeat(2, 50vh); 
     gap: 0;
+    overflow: hidden; 
   }
   
-  .image-grid .image {
-    display: block;
+  .image {
     position: relative;
+    width: 100%; /* Fully occupy grid column width */
+    height: 100%; /* Fully occupy grid row height */
+    overflow: hidden; 
   }
   
-  .image-grid .image img {
+ 
+  .image:hover img {
+    transform: scale(1.05); 
+    transition: transform 0.5s; /* Animation duration and effect */
+  }
+  
+  .image img {
     width: 100%;
-    height: 100%; 
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.5s; 
     display: block;
   }
-  
   .tall-image1 {
     grid-row: 1 / span 2; 
   }
@@ -338,6 +349,7 @@ header nav .menu li a:hover {
   .small-image {
     grid-row: span 1;
   }
+  
 .image p{
 position: absolute;
   top: 50%;
@@ -347,15 +359,189 @@ position: absolute;
   color: #333; /* text color */
   padding: 1em;
   text-align: center;
-  margin: 0; 
+  margin: 0;
+  z-index: 1;
   }
   .image:hover p{
     background-color: $hover-color;
     color: white;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.5s ease;
   }
   
+  // Our Services 
+  .container2 {
+    width: 100%;
+    padding: 0px 10%;
+    box-sizing: border-box; /* To prevent padding from increasing total width */
+  }
+  
+  .places2 {
+    @extend .places;
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .places2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translate(-50%);
+    width: 100px;
+    height: 5px;
+    background-color: $hover-color; 
+  }
+  .row2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns layout */
+    grid-row-gap: 40px;
+    grid-column-gap: 40px; 
+    width: 100%; 
+    box-sizing: border-box;
+    padding-bottom: 20px;
+  }
+  
+  .service {
+    max-width: 100%;
+    background: #fff; 
+    padding: 25px;
+    text-align: center;
+    border-radius: 5px;
+    transition: transform 0.5s;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .service:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .service i {
+    font-size: 2rem; 
+    color: #800080;
+    margin-bottom: 10px; 
+  }
+  
+  //Packages
+  img{
+    max-width: 100%;
+  }
+  a{
+    text-decoration: none;
+  }
+  .article_container{
+    max-width: 80% ;
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 1.5;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .article_card{
+    max-width: 15.5rem;
+    height: 100%;
+    border-radius: 1.25rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.164);
+    margin-bottom: 25px;
+    flex: 0 0 auto;
+    margin-right: 25px;
+  }
+  .card_wrapper{
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-left: 5px;
+    &::-webkit-scrollbar {
+        display: none;
+      }
+    
+    }
+.article_image img{
+    width: 100%;
+    height: auto;
+    border-radius: 1.25rem 1.25rem  0 0;
+    object-fit: cover;
+}
+
+.article_content{
+    padding: .5rem;
+}
+
+.card_category{
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    color: rgb(198, 97, 214) ;
+}
+
+.card-title{
+    margin: .8rem 0;
+    height: 3rem;
+}
+
+.card{
+   margin: 0;
+   padding-top: 10px;
+   font-size: .7rem;
+   
+}
+.price{
+    text-align: center;
+    padding: 8px;
+    background-color: $hover-color;
+    color: white;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.slider-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 999; /* High z-index so it's above most other content */
+    background-color: #800080; /* The supplied hover color set correctly as a value*/
+    color: #FFFFFF; /* For white color text */
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: x-large;
+  }
+  
+  .slider-nav-btn-prev { 
+    left:0;
+ }
+  .slider-nav-btn-next { 
+    right:0;
+ }
+
 /*Responsive code*/
+@media (max-width: 321px){
+  .article_card{
+    max-width: 12.5rem;
+  }
+  .card-title{
+    font-size: 1rem;
+  }
+  .card_wrapper{
+    padding-left: 5px;
+  }
+  .slider-nav-btn-next .slider-nav-btn-prev{
+    width: 1rem;
+    height: 1rem;
+  }
+  .article_container{
+    margin-top: 0;
+  }
+}
 @media (max-width: 480px) {
     header .logo {
       font-size: 1.5rem;
@@ -365,7 +551,7 @@ position: absolute;
     }
   }
 
-@media (max-width:412px) {
+@media (max-width:412px){
     header nav .menu {
         position: fixed;
         top: 0;
@@ -430,7 +616,9 @@ position: absolute;
       }
       body.no-scroll{
           overflow: hidden;
-      }      
+      } 
+
+      //slider     
     .thumbnail{
         width: 100%;
         height: auto;
@@ -453,7 +641,52 @@ position: absolute;
         width: 52px;
         height: 115px;
     }
-}
+    //Things to do
+    .image-grid{
+      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+    .image p{
+      font-size: 3vw;
+    }
+    .tall-image1 {
+      grid-row: auto; /* Reset to default grid placement */
+    }
+    .tall-image2 {
+      grid-row: auto; /* Reset to default grid placement */
+      grid-column: auto; /* Reset to default grid placement */
+    }
+    .small-image {
+      grid-row: auto; /* Reset to default grid placement */
+    }
+
+    //Services
+    .container2{
+        padding: 2% 5%;
+    }
+    .row2{
+        grid-template-columns: 1fr;
+        grid-gap: 25px;
+    }
+    .service{
+        padding: 15px;
+    }
+    .service h2{
+        font-size: 18px;
+    }
+    .service p{
+        font-size: 14px;
+    }
+    //Our Packages
+    .article_container {
+        width: 80%; 
+      }
+    .card-title{
+      font-size: 1rem;
+    }
+
+    }
+
 @media (max-width: 768px) and (min-width:413px) {
     header nav .menu {
         position: fixed;
@@ -536,7 +769,7 @@ position: absolute;
         height: 222px;
     }
     .image-grid {
-        grid-template-rows: repeat(6, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .image.tall-image1,
@@ -581,3 +814,4 @@ position: absolute;
         display: block;
       }
 }
+
